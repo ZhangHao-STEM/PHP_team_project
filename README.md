@@ -60,3 +60,67 @@ project/
 ├── index.php                           // 项目入口文件
 ├── Router.php                          // 路由器文件
 └── .htaccess                           // URL 重写规则
+按照开发流程，学生报到管理系统的文件编写顺序如下：
+
+第一阶段：基础配置和环境搭建
+index.php - 项目入口文件。
+config/config.php - 全局配置文件（数据库配置等）。
+config/session.php - 会话初始化配置。
+Router.php - 路由器文件。
+.htaccess - URL 重写规则文件。
+第二阶段：登录功能开发
+模型层：
+models/Database.php - 数据库连接封装。
+models/UserModel.php - 用户验证逻辑。
+控制器层：
+controllers/AuthController.php - 登录与注销功能控制器。
+视图层：
+views/auth/LoginView.php - 登录页面。
+views/auth/LogoutView.php - 注销页面。
+第三阶段：学生功能模块
+模型层：
+models/StudentModel.php - 学生信息维护逻辑。
+控制器层：
+controllers/StudentController.php - 学生功能控制器。
+视图层：
+views/student/InfoEditView.php - 学生信息维护页面。
+views/student/RegistrationComplete.php - 报到完成页面。
+第四阶段：缴费功能模块
+模型层：
+models/PaymentModel.php - 缴费逻辑。
+控制器层：
+controllers/PaymentController.php - 缴费功能控制器。
+视图层：
+views/payment/PaymentFormView.php - 缴费页面。
+views/payment/PaymentSuccessView.php - 缴费成功页面。
+第五阶段：宿舍分配功能模块
+模型层：
+models/DormitoryModel.php - 宿舍选择逻辑。
+控制器层：
+controllers/DormitoryController.php - 宿舍分配功能控制器。
+视图层：
+views/dormitory/DormSelectionView.php - 宿舍选择页面。
+views/dormitory/DormConfirmView.php - 宿舍选择确认页面。
+第六阶段：管理员功能模块
+模型层：
+models/AdminModel.php - 管理员相关逻辑。
+控制器层：
+controllers/AdminController.php - 管理员功能控制器。
+视图层：
+views/admin/ManageStudentsView.php - 管理学生页面。
+views/admin/ManagePaymentsView.php - 管理缴费页面。
+views/admin/ManageDormitoriesView.php - 管理宿舍页面。
+第七阶段：报到完成后的跳转
+控制器层：
+controllers/DashboardController.php - 报到完成跳转控制器。
+视图层：
+views/dashboard/SystemRedirectView.php - 报到完成后跳转的模拟页面。
+第八阶段：公共组件和资源
+视图层：
+views/shared/Header.php - 页面头部模板。
+views/shared/Footer.php - 页面尾部模板。
+静态资源：
+public/css/styles.css - 全局样式文件。
+public/js/scripts.js - 全局 JavaScript 文件。
+编写顺序总结
+从基础配置 → 登录功能 → 学生功能 → 缴费功能 → 宿舍分配 → 管理员功能 → 报到完成跳转 → 公共组件和静态资源，逐步实现项目功能，保证系统可运行后再增加模块。
