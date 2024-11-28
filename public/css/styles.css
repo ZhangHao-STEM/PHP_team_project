@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('../assets/reg_bg_min.jpg'); /* 添加背景图片 */
+    background-size: cover; /* 使图片覆盖整个页面 */
+    background-position: center; /* 将背景图片居中显示 */
+    background-repeat: no-repeat; /* 不重复背景图片 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    background-color: rgba(255, 255, 255, 0.8); /* 半透明白色背景，以便与背景图片产生对比 */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #3b9ef7;
+    outline: none;
+}
+
+.captcha-wrapper {
+    display: flex;
+    /*justify-content: space-between;*/
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.captcha-input {
+    /*width: 70%;*/
+    width: 65%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.captcha-image {
+    /*width: 25%;*/
+    width: 30%;
+    height: 40px;
+    margin-left: 10px;
+    margin-bottom: 15px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #3b9ef7;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #3489d0;
+}
+
+.reset-link {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+    text-decoration: none;
+}
+
+.reset-link:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: red;
+    margin-bottom: 10px;
+    text-align: center;
+}
