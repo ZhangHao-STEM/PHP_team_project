@@ -5,7 +5,7 @@
 ## 项目结构
 
 ```bash
-project/
+PHP_team_project/
 ├── controllers/                        // 控制器目录
 │   ├── AuthController.php              // 登录、注销、会话验证控制器
 │   ├── StudentController.php           // 学生功能控制器
