@@ -1,49 +1,68 @@
+/* 通用样式 */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background-image: url('../assets/reg_bg_min.jpg'); /* 添加背景图片 */
-    background-size: cover; /* 使图片覆盖整个页面 */
-    background-position: center; /* 将背景图片居中显示 */
-    background-repeat: no-repeat; /* 不重复背景图片 */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+/* 页面标题样式 */
+.page-title {
+    text-align: center;           /* 标题居中 */
+    font-size: 36px;              /* 标题字体大小 */
+    margin-bottom: 20px;          /* 设置标题与表单之间的间距 */
+    color: white;                 /* 设置标题颜色 */
 }
 
-.login-container {
-    background-color: rgba(255, 255, 255, 0.8); /* 半透明白色背景，以便与背景图片产生对比 */
+/* 页面布局容器 */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('../assets/reg_bg_min.jpg'); /* 背景图片 */
+    background-size: cover;      /* 背景覆盖整个页面 */
+    background-position: center; /* 背景居中 */
+    background-repeat: no-repeat; /* 背景不重复 */
+    display: flex;
+    flex-direction: column;      /* 垂直方向排列内容 */
+    justify-content: center;     /* 内容在垂直方向居中 */
+    align-items: center;         /* 内容在水平方向居中 */
+    height: 100vh;               /* 屏幕高度 */
+    margin: 0;                   /* 避免默认的 body 边距 */
+}
+
+/* 登录和重置密码表单容器样式 */
+.login-container, .reset-password-container {
+    background-color: rgba(255, 255, 255, 0.85); /* 半透明背景 */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 300px;                 /* 固定宽度 */
+    margin-top: 20px;             /* 标题与表单之间的间距 */
 }
 
+/* 标题与表单之间的间距 */
 h1 {
+    font-size: 36px;
+    color: white;
     text-align: center;
-    font-size: 24px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;   /* 标题下方间距 */
 }
 
 h2 {
+    font-size: 24px;
+    color: black;
     text-align: center;
-    font-size: 18px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 14px;
+/* 错误提示信息 */
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    display: none; /* 默认隐藏错误信息 */
 }
 
-input[type="text"],
-input[type="password"] {
+/* 表单输入框样式 */
+input[type="text"], input[type="password"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -52,38 +71,64 @@ input[type="password"] {
     font-size: 14px;
 }
 
-input[type="text"]:focus,
-input[type="password"]:focus {
+input[type="text"]:focus, input[type="password"]:focus {
     border-color: #3b9ef7;
     outline: none;
 }
 
+/* 错误提示信息 */
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    display: none; /* 默认隐藏错误信息 */
+    visibility: hidden;
+}
+
+/* 当出现错误时，显示错误信息并调整输入框底部间距 */
+input[type="text"].error, input[type="password"].error {
+    margin-bottom: 5px; /* 错误时减少输入框底部间距 */
+}
+
+/* 当有错误信息时，显示错误信息 */
+input[type="text"].error + .error-message,
+input[type="password"].error + .error-message {
+    display: block; /* 显示错误信息 */
+    visibility: visible; /* 错误信息占据空间 */
+}
+
+/* 验证码输入框和图片样式 */
 .captcha-wrapper {
     display: flex;
-    /*justify-content: space-between;*/
     justify-content: flex-start;
     align-items: center;
-    margin-bottom: 15px;
+    /*margin-bottom: 15px;*/
+}
+
+.captcha-input-wrapper {
+    display: flex;
+    flex-direction: column;  /* 垂直排列input和error-message */
+    margin-right: 10px;  /* 输入框和验证码图片之间的间距 */
 }
 
 .captcha-input {
-    /*width: 70%;*/
     width: 65%;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 14px;
+    margin-bottom: 5px;  /* 输入框底部间距 */
 }
 
 .captcha-image {
-    /*width: 25%;*/
     width: 30%;
     height: 40px;
     margin-left: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 
-.submit-btn {
+/* 提交按钮样式 */
+.submit-btn, button {
     width: 100%;
     padding: 10px;
     background-color: #3b9ef7;
@@ -94,11 +139,12 @@ input[type="password"]:focus {
     cursor: pointer;
 }
 
-.submit-btn:hover {
+.submit-btn:hover, button:hover {
     background-color: #3489d0;
 }
 
-.reset-link {
+/* 重置密码页面的返回登录链接样式 */
+.reset-link, .back-to-login a {
     display: block;
     text-align: center;
     margin-top: 10px;
@@ -107,12 +153,12 @@ input[type="password"]:focus {
     text-decoration: none;
 }
 
-.reset-link:hover {
+.reset-link:hover, .back-to-login a:hover {
     text-decoration: underline;
 }
 
-.error-message {
-    color: red;
-    margin-bottom: 10px;
-    text-align: center;
+/* 保证重置表单的样式不受干扰 */
+.reset-password-container {
+    margin-top: 20px;   /* 设置表单与标题之间的间距 */
+    height: auto;       /* 自适应高度 */
 }

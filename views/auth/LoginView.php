@@ -1,28 +1,5 @@
 <?php
-// 启动会话，生成验证码
 session_start();
-if (!isset($_SESSION['captcha'])) {
-    $_SESSION['captcha'] = rand(1000, 9999);
-}
-
-$error = ''; // 错误信息初始化
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // 获取表单数据
-    $username = $_POST['username'] ?? '';
-    $password = $_POST['password'] ?? '';
-    $captcha = $_POST['captcha'] ?? '';
-
-    // 验证验证码
-    if ($captcha != $_SESSION['captcha']) {
-        $error = "验证码不正确！";
-    } elseif ($username == 'student' && $password == 'password') {
-        header("Location: dashboard.php"); // 登录成功，跳转到报到系统主页
-        exit();
-    } else {
-        $error = "用户名或密码错误！";
-    }
-}
 ?>
 
 <!DOCTYPE html>
@@ -34,33 +11,39 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="../../public/css/styles.css">
 </head>
 <body>
+<!-- 页面标题 -->
+<h1 class="page-title">学生报到系统</h1>
+
+<!-- 登录表单 -->
 <div class="login-container">
-    <h1>学生报到系统</h1>
-    <form action="login.php" method="POST" class="login-form">
-        <h2>登录</h2>
+    <form action="../../controllers/AuthController.php" method="POST" class="login-form">
+        <form action="../../controllers/AuthController.php" method="POST" class="login-form">
+            <h2>登录</h2>
 
-        <?php if ($error): ?>
-            <div class="error-message"><?= htmlspecialchars($error); ?></div>
-        <?php endif; ?>
+            <label for="username">用户名</label>
+            <input type="text" name="username" id="username" required>
+            <div class="error-message" id="username-error"></div>
 
-        <label for="username">用户名</label>
-        <input type="text" name="username" id="username" required>
+            <label for="password">密码</label>
+            <input type="password" name="password" id="password" required>
+            <div class="error-message" id="password-error"></div>
 
-        <label for="password">密码</label>
-        <input type="password" name="password" id="password" required>
+            <label for="captcha">验证码</label>
+            <div class="captcha-wrapper">
+                <div class="captcha-input-wrapper">
+                    <input type="text" name="captcha" id="captcha" required class="captcha-input">
+                    <div class="error-message" id="captcha-error"></div>
+                </div>
+                <img src="../../controllers/CaptchaController.php?<?= time(); ?>" class="captcha-image" id="captcha-image" onclick="refreshCaptcha();" alt="验证码">
+            </div>
 
-        <label for="captcha">验证码</label>
-        <div class="captcha-wrapper">
-            <input type="text" name="captcha" id="captcha" required class="captcha-input">
-            <img src="../../controllers/CaptchaController.php?<?= time(); ?>" class="captcha-image" id="captcha-image" onclick="refreshCaptcha();" alt="">
-        </div>
 
-        <button type="submit" class="submit-btn">登录</button>
-        <a href="reset_password.php" class="reset-link">忘记密码？</a>
-    </form>
+            <button type="submit" class="submit-btn">登录</button>
+            <a href="resetPasswordView.php" class="reset-link">重置密码</a>
+        </form>
 </div>
 
+<!--引入外部js-->
 <script src="../../public/js/scripts.js"></script>
-
 </body>
 </html>
