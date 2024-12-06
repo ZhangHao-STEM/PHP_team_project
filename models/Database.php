@@ -5,9 +5,9 @@ class Database {
     private $pdo;
 
     private function __construct() {
-        $dsn = 'mysql:host=localhost;dbname=your_database';
-        $username = 'your_username';
-        $password = 'your_password';
+        $dsn = 'mysql:host=localhost;dbname=php';
+        $username = 'root';
+        $password = 'root';
         $this->pdo = new PDO($dsn, $username, $password);
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }

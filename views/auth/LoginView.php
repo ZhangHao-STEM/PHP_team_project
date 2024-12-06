@@ -16,7 +16,6 @@ session_start();
 
 <!-- 登录表单 -->
 <div class="login-container">
-    <form action="../../controllers/AuthController.php" method="POST" class="login-form">
         <form action="../../controllers/AuthController.php" method="POST" class="login-form">
             <h2>登录</h2>
 
@@ -38,7 +37,7 @@ session_start();
             </div>
 
 
-            <button type="submit" class="submit-btn">登录</button>
+            <button  onclick="redirectToDashboard(event)">登录</button>
             <a href="resetPasswordView.php" class="reset-link">重置密码</a>
         </form>
 </div>

@@ -1,0 +1,141 @@
+/* 页面整体布局 */
+.container {
+    display: flex;
+    flex-direction: row;  /* 将页面设置为横向布局 */
+    min-height: 100vh;
+    margin-top: 64px; /* 让页面内容与头部下方对齐 */
+    margin-bottom: 60px; /* 留出底部空间 */
+}
+
+/* Header 部分 */
+.header {
+    background-color: #e0f7fa; /* 浅蓝色背景 */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    position: fixed; /* 固定头部 */
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+/* 头部内容 */
+.header .header-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header .logo {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.header .logo h1 {
+    margin: 0;
+    font-size: 24px;
+    text-align: center;
+}
+
+.header .user-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.header .user-info .avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.header .user-info .user-name {
+    margin-right: 20px;
+    font-size: 16px;
+}
+
+.header .user-info .user-menu select {
+    padding: 5px;
+    font-size: 14px;
+}
+
+/* 底部样式 */
+.footer {
+    background-color: #f1f1f1; /* 浅灰色背景 */
+    padding: 10px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+    position: fixed; /* 固定底部 */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+/* 侧边栏样式 */
+.sidebar {
+    width: 250px;
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    height: calc(100vh - 171px);
+}
+
+/* 侧边栏列表 */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.sidebar ul li a {
+    display: block;
+    padding: 12px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, padding-left 0.3s ease, font-weight 0.3s ease;
+    width: 100%;
+    text-align: center;
+}
+
+/* 鼠标悬停和选中时的效果 */
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+    background-color: #1abc9c;
+    padding-left: 30px;
+    font-weight: bold;
+}
+
+.sidebar ul li a.active {
+    background-color: #16a085;
+    color: #fff;
+}
+
+/* 主内容区域 */
+.main-content {
+    margin-left: 282px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    flex-grow: 1;
+}

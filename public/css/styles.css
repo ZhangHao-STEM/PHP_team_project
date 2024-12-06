@@ -162,3 +162,4 @@ input[type="password"].error + .error-message {
     margin-top: 20px;   /* 设置表单与标题之间的间距 */
     height: auto;       /* 自适应高度 */
 }
+

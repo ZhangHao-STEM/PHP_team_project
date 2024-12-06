@@ -183,9 +183,22 @@ document.addEventListener("DOMContentLoaded", function () {
         handleFormSubmit(resetPasswordForm, '../../controllers/resetPasswordController.php');
     }
 
-    // 页面是否为登录页面，如果是，绑定登录表单的提交逻辑
-    const loginForm = document.querySelector('form[action="../../controllers/loginController.php"]');
-    if (loginForm) {
-        handleFormSubmit(loginForm, '../../controllers/loginController.php');
+});
+
+// 点击其他地方时，关闭下拉菜单
+document.addEventListener('click', function (event) {
+    var menu = document.getElementById('userMenu');
+    var userName = document.querySelector('.user-name span');
+
+    // 检查点击的位置是否是用户名或下拉菜单区域
+    if (!userName.contains(event.target) && !menu.contains(event.target)) {
+        menu.classList.remove('show'); // 点击其他地方关闭菜单
     }
 });
+
+function redirectToDashboard(event) {
+    // 阻止表单提交
+    event.preventDefault();
+    // 跳转到学生仪表盘页面
+    window.location.href = 'http://localhost/PHP_team_project/views/auth/StudentDashboard.php';
+}
